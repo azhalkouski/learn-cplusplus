@@ -26,9 +26,9 @@ long long   8
 For numbers with decimal places (Floating point numbers):
 
 Type      Bytes              Range
-float       4         -3.4E38 to 3.4E38
-double      8         -1.7E308 to 1.7E308
-long double 8         -3.4E932 to 1.7E4832
+float       4         -3.4E38 to 3.4E38   (7 digits)
+double      8         -1.7E308 to 1.7E308 (15 digits)
+long double 10         1.2E +/- 4932      (19 digits)
 
 Use double for monetary values because floats can result in lose of accuracy.
 
@@ -37,3 +37,115 @@ Other fundamental types:
 Type      Bytes              Range
 bool        1             true / flase
 char        1
+
+
+
+C++ Standard Library
+
+- Collection of classes and functions available within the C++ language
+- Example Functionality
+  - Strings / IO / Streams / Files
+  - Generic Containers (vector, set, map)
+  - Container Functionality (fill, copy, erase)
+  - Algorithms (sort, max/min)
+
+
+Program Code is written in .cpp Files
+- Used for function / class `definitions`
+
+Header Files are written in .h files
+- Used for function / class `declarations`
+
+C++ Compilation Process
+- C++ programs are compiled into binary executable files, run directly by CPU
+- No virtual machine like Java
+- No interpreter like Python
+- This results in (usually) faster execution, but at the price of lower level
+programming
+- There are many different C++ compilers for different OSes
+
+
+C++ Preprocessor Function
+- Runs all specific preprocessor directives
+- Most popular preprocessor functions:
+  - #include <library>
+  - #include "specificfile.h"
+- `#include <X>` inserts file X into this file
+  - `#include "MyObject.h"` inserts the entire text from the file `MyObject.h`
+  into the file calling the #include
+
+
+To specify the output executable name:
+- g++ myprog.cpp -o myprog // `-o myprog`
+
+
+Benefits of Header Files (.h)
+- They allow you to see the entire functionality of a class at once
+- They separate design from implementation
+- Headers seldom change, leading to less files requiring recompilation
+
+
+Drawbacks of Header Files (.h)
+- Cyclic dependencies (includes) can be hard to detect and resolve (bad compiler errors)
+
+
+
+
+Bitwise Operators
+
+Operator Name           Syntax
+bitwise NOT             ~a
+bitwise AND             a & b
+bitwise OR              a | b
+bitwise XOR             a ^ b
+arithmetic left shift   a << b
+arithmetic right shift  a >> b
+
+
+Functions
+returnType funcName(args) { logic; }
+
+- you can have same fuction name with different input arguments
+- you canNOT have functions with same name and args that differ only in return type
+
+
+C++ Classes
+
+I guess it is a header file
+class Point
+{
+  // thises variables are explicitely assigned with zeros because otherwise they
+  // will be assigned with some random big numbers like 28957239
+  int m_x = 0; // private
+  int m_y = 0;
+
+public: // everything which is above `public` is private
+  Point(int x, int y);
+  int getX();
+  int getY();
+}
+
+Then somewhere in the .cpp file goes constructor definition (implementation)
+Point::Point(int x, int y)
+    : m_x(x) // this is called initializer lists
+    , m_y(y)
+{
+}
+
+The initializer lists is the most efficient way of defining constructors because
+we if do it like this (see below) the compiler will do double work: first, it'll
+assign defaut values which are zeros, and then it will reassign the values with
+the ones being passed as arguments which is double work and TIME.
+Point::Point(int x, int y)
+{
+  m_x = x;
+  m_y = y;
+}
+
+
+C++ Class Destructor
+
+Point::~Point()
+{
+  // lean-up here (maybe you had a pointer and you want to delete the pointer)
+}
