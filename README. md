@@ -1,0 +1,39 @@
+C++ is statically-typed language which meand when we declare a valiable of a certain
+type the variable cannot change its type throughout the lifetime of a program.
+
+Other statically-typed languages:
+- C#
+- Java
+- Go
+
+In contrast dynamically-typed languages are
+- Python
+- JavaScript
+- Ruby
+
+
+Fundamental built-in Data types in C++:
+
+For whole numbers:
+
+Type      Bytes              Range
+shot        2         -32,768 to 32,768
+int         4             -2B to 2B
+long        4             -2B to 2B
+long long   8
+
+
+For numbers with decimal places (Floating point numbers):
+
+Type      Bytes              Range
+float       4         -3.4E38 to 3.4E38
+double      8         -1.7E308 to 1.7E308
+long double 8         -3.4E932 to 1.7E4832
+
+Use double for monetary values because floats can result in lose of accuracy.
+
+Other fundamental types:
+
+Type      Bytes              Range
+bool        1             true / flase
+char        1
