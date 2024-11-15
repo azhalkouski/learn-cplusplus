@@ -1,4 +1,4 @@
-C++ is statically-typed language which meand when we declare a valiable of a certain
+C++ is statically-typed language which means when we declare a valiable of a certain
 type the variable cannot change its type throughout the lifetime of a program.
 
 Other statically-typed languages:
@@ -12,9 +12,9 @@ In contrast dynamically-typed languages are
 - Ruby
 
 
-Fundamental built-in Data types in C++:
+## Fundamental built-in Data types in C++:
 
-For whole numbers:
+### For whole numbers:
 
 Type      Bytes              Range
 shot        2         -32,768 to 32,768
@@ -23,7 +23,7 @@ long        4             -2B to 2B
 long long   8
 
 
-For numbers with decimal places (Floating point numbers):
+### For numbers with decimal places (Floating point numbers):
 
 Type      Bytes              Range
 float       4         -3.4E38 to 3.4E38   (7 digits)
@@ -32,7 +32,7 @@ long double 10         1.2E +/- 4932      (19 digits)
 
 Use double for monetary values because floats can result in lose of accuracy.
 
-Other fundamental types:
+### Other fundamental types:
 
 Type      Bytes              Range
 bool        1             true / flase
@@ -40,7 +40,7 @@ char        1
 
 
 
-C++ Standard Library
+## C++ Standard Library
 
 - Collection of classes and functions available within the C++ language
 - Example Functionality
@@ -50,13 +50,13 @@ C++ Standard Library
   - Algorithms (sort, max/min)
 
 
-Program Code is written in .cpp Files
+## Program Code is written in .cpp Files
 - Used for function / class `definitions`
 
-Header Files are written in .h files
+## Header Files are written in .h files
 - Used for function / class `declarations`
 
-C++ Compilation Process
+## C++ Compilation Process
 - C++ programs are compiled into binary executable files, run directly by CPU
 - No virtual machine like Java
 - No interpreter like Python
@@ -65,7 +65,7 @@ programming
 - There are many different C++ compilers for different OSes
 
 
-C++ Preprocessor Function
+## C++ Preprocessor Function
 - Runs all specific preprocessor directives
 - Most popular preprocessor functions:
   - #include <library>
@@ -75,25 +75,25 @@ C++ Preprocessor Function
   into the file calling the #include
 
 
-To specify the output executable name:
+### To specify the output executable name:
 - g++ myprog.cpp -o myprog // `-o myprog`
 
 
-Benefits of Header Files (.h)
+### Benefits of Header Files (.h)
 - They allow you to see the entire functionality of a class at once
 - They separate design from implementation
 - Headers seldom change, leading to less files requiring recompilation
 
 
-Drawbacks of Header Files (.h)
+### Drawbacks of Header Files (.h)
 - Cyclic dependencies (includes) can be hard to detect and resolve (bad compiler errors)
 
 
 
 
-Bitwise Operators
+## Bitwise Operators
 
-Operator Name           Syntax
+### Operator Name           Syntax
 bitwise NOT             ~a
 bitwise AND             a & b
 bitwise OR              a | b
@@ -102,14 +102,14 @@ arithmetic left shift   a << b
 arithmetic right shift  a >> b
 
 
-Functions
+## Functions
 returnType funcName(args) { logic; }
 
 - you can have same fuction name with different input arguments
 - you canNOT have functions with same name and args that differ only in return type
 
 
-C++ Classes
+## C++ Classes
 
 I guess it is a header file
 class Point
@@ -143,7 +143,7 @@ Point::Point(int x, int y)
 }
 
 
-C++ Class Destructor
+## C++ Class Destructor**
 
 Point::~Point()
 {
