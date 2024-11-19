@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 class Student
 {
@@ -107,6 +108,24 @@ public:
     return m_students;
   }
 
+  void loadFromFile(const std::string& filename)
+  {
+    // input file stream
+    std::ifstream fin(filename);
+    std::string first, last;
+    int id;
+    float avg;
+
+    // fin is goint to send its next string token into temp
+    while (fin >> first)
+    {
+      // fin will automatically convert string id into int id
+      fin >> last >> id >> avg;
+
+      addStudent(Student(first, last, id, avg));
+    }
+  }
+
   void print() const
   {
     // auto tells the compiler to use type inference
@@ -134,20 +153,28 @@ public:
 // }
 
 // int main(int argc, char * argv[])
+// int main()
+// {
+//   Student s1;
+//   Student s2("Dave", "Churchill", 1, 3.14);
+//   // const means I want this student to be constant. I don't want it to ever change
+//   const Student s3("Jane", "Doe", 202200001, 99.9);
+
+//   Course comp4300("COMP 4300");
+//   comp4300.addStudent(s1);
+//   comp4300.addStudent(s2);
+//   comp4300.addStudent(s3);
+//   comp4300.addStudent(Student("Billy", "Bob", 3, 50.0));
+
+//   comp4300.print();
+
+//   return 0;
+// }
+
+// LOAD FROM FILE
 int main()
 {
-  Student s1;
-  Student s2("Dave", "Churchill", 1, 3.14);
-  // const means I want this student to be constant. I don't want it to ever change
-  const Student s3("Jane", "Doe", 202200001, 99.9);
-
-  Course comp4300("COMP 4300");
-  comp4300.addStudent(s1);
-  comp4300.addStudent(s2);
-  comp4300.addStudent(s3);
-  comp4300.addStudent(Student("Billy", "Bob", 3, 50.0));
-
-  comp4300.print();
-
-  return 0;
+  Course c("COMP 4300");
+  c.loadFromFile("students.txt");
+  c.print();
 }
